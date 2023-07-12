@@ -1,40 +1,5 @@
-/*const Discord = require("discord.js")
-require("dotenv").config()
-const generateImage = require("./generateImage")
-
-const client = new Discord.Client({
-    intents: [
-        "GUILDS",
-        "GUILD_MESSAGES",
-        "GUILD_MEMBERS"
-    ]
-})
-
-client.on('ready', () => {
-    console.log('The bot is ready')
-})
-
-client.on('messageCreate', (message) => {
-    if (message.content === 'ping') {
-        message.reply('pong')
-    }
-})
-
-const welcomeChannelId = "1128488104240615464"
-
-client.on("guildMemberAdd", async (member) => {
-    const img = await generateImage(member) 
-    member.guild.channels.cache.get(welcomeChannelId).send({
-        content:`<@${member.id}> Welcome to the server!`,
-        files: [img]
-    })
-})
-
-client.login(process.env.TOKEN)
-*/
 const Discord = require("discord.js")
 require("dotenv").config()
-
 const generateImage = require("./generateImage")
 
 const client = new Discord.Client({
@@ -50,17 +15,17 @@ client.on("ready", () => {
 })
 
 client.on("messageCreate", (message) => {
-    if (message.content == "hi"){
-        message.reply("Hello World!")
+    if (message.content === "ping") {
+        message.reply("pong")
     }
 })
 
 const welcomeChannelId = "1128488104240615464"
 
 client.on("guildMemberAdd", async (member) => {
-    const img = await generateImage(member)
+    const img = await generateImage(member) 
     member.guild.channels.cache.get(welcomeChannelId).send({
-        content: `<@${member.id}> Welcome to the server!`,
+        content:`<@${member.id}> Welcome to the server!`,
         files: [img]
     })
 })
